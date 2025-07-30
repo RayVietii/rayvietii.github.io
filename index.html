@@ -5,122 +5,339 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ray Vietii | Creator Sanctum</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
       line-height: 1.7;
-      background: #111c27;
+      background: linear-gradient(135deg, #0c1520 0%, #1a2332 100%);
       color: #e7e7e7;
+      min-height: 100vh;
     }
-    h1, h2 {
+
+    .container {
+      background: rgba(22, 36, 51, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
       color: #fff;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #4397dc, #64b5f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    a {
+
+    .roles {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #b0bec5;
+    }
+
+    .intro {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: rgba(67, 151, 220, 0.1);
+      border-radius: 12px;
+      border-left: 4px solid #4397dc;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.8em;
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(67, 151, 220, 0.2);
+      border-color: #4397dc;
+    }
+
+    .project-title {
+      font-weight: bold;
       color: #4397dc;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+
+    .links-section {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .link-group {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 3px solid #4397dc;
+    }
+
+    .link-group strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .link-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .link-btn {
+      background: linear-gradient(45deg, #4397dc, #64b5f6);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 151, 220, 0.4);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .social-links {
+      background: linear-gradient(135deg, rgba(67, 151, 220, 0.1), rgba(100, 181, 246, 0.1));
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      margin: 40px 0;
+      border: 1px solid rgba(67, 151, 220, 0.3);
     }
-    img {
-      display: block;
-      margin: 40px auto 0;
-      max-width: 240px;
+
+    .social-links h3 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 1.3em;
     }
-    blockquote {
-      margin: 1em 0;
-      padding: 0.8em 1em;
-      background: #162433;
-      border-left: 4px solid #ccc;
+
+    .social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 2em 0;
+
+    .social-link {
+      background: rgba(255, 255, 255, 0.1);
+      color: #4397dc;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(67, 151, 220, 0.3);
+    }
+
+    .social-link:hover {
+      background: #4397dc;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(67, 151, 220, 0.3);
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .logo {
+      max-width: 280px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9em;
+      opacity: 0.7;
+      color: #b0bec5;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+        margin: 10px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .social-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .link-buttons {
+        justify-content: center;
+      }
+    }
+
+    /* Subtle animations */
+    .project-card, .link-group, .social-links {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <h1>Ray Vietii</h1>
+      <div class="roles">🎨 Artist | ✍️ Writer/Worldbuilder | 🎼 Composer | 🧠 ML Enthusiast</div>
+    </div>
 
-  <h1>Ray Vietii</h1>
-  <p>🎨 Artist | ✍️ Writer/Worldbuilder | 🎼 Composer | 🧠 ML Enthusiast</p>
+    <div class="intro">
+      <p>Hey there, I'm <strong>Ray Vietii</strong>.<br>
+      I explore machine learning, fantasy worldbuilding, original languages, and sound creation.<br>
+      Most of what I do is self-driven, experimental, and a bit chaotic, but it's mine.</p>
+      <p><em>I'm also known as Rico 'Ray Vietii' Prayoga</em></p>
+    </div>
 
-  <p>Hey there, I'm <strong>Ray Vietii</strong>.<br>
-  I explore machine learning, fantasy worldbuilding, original languages, and sound creation.<br>
-  Most of what I do is self-driven, experimental, and a bit chaotic, but it's mine.</p>
+    <div class="section">
+      <h2>🔧 Projects</h2>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">RayVietii-DRm and Papermae</div>
+          <p>My own fine-tuned <strong>Stable Diffusion 1.5</strong> models, trained for expressive anime-style generation.</p>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-title">Prinila Langua</div>
+          <p>A conlang for my fantasy world. Includes grammar, poetic structure, and over 400+ lexicons.</p>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-title">Class V Amplifier</div>
+          <p>An analog amp design I've been developing from scratch, based on a logic-style topology.</p>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-title">Skaan Downwash Velocity</div>
+          <p>A formula model to estimate a speculative or fictional avian humanoid creatures.</p>
+        </div>
+      </div>
 
-  <p><em>I'm also known as Rico 'Ray Vietii' Prayoga</em></p>
+      <div class="links-section">
+        <div class="link-group">
+          <strong>📖 Conlang Repository</strong>
+          <div class="link-buttons">
+            <a href="https://github.com/RayVietii/Prinila-Langua" target="_blank" class="link-btn">Prinila Langua</a>
+          </div>
+        </div>
 
-  <hr>
+        <div class="link-group">
+          <strong>🎆 Stable Diffusion Models</strong>
+          <div class="link-buttons">
+            <a href="https://civitai.com/models/1638240/rayvietii-mean-average-emergent" target="_blank" class="link-btn">RayVietii-DRm (CivitAI)</a>
+            <a href="https://pixai.art/model/1898911080527294506" target="_blank" class="link-btn">RayVietii-DRm (PixAI)</a>
+            <a href="https://civitai.com/models/1748739/rayvietii-papermae" target="_blank" class="link-btn">Papermae (CivitAI)</a>
+            <a href="https://pixai.art/model/1899004000309769018" target="_blank" class="link-btn">Papermae (PixAI)</a>
+          </div>
+        </div>
 
-  <h2>🔧 Projects</h2>
-  <ul>
-    <li><strong>RayVietii-DRm and Papermae</strong>, my own fine-tuned <strong>Stable Diffusion 1.5</strong> models, trained for expressive anime-style generation.</li>
-    <li><strong>Prinila Langua</strong>, a conlang for my fantasy world. Includes grammar, poetic structure, and over 400+ lexicons.</li>
-    <li><strong>Class V Amplifier</strong>, an analog amp design I've been developing from scratch, based on a logic-style topology.</li>
-    <li><strong>Skaan Downwash Velocity</strong>, is a formula model to estimate a speculative or fictional avian humanoid creatures.</li>
-  </ul>
-  
-  <p>📖 Check out my conlang: 
-    <a href="https://github.com/RayVietii/Prinila-Langua" target="_blank">
-      Prinila Langua Repository
-    </a>
-  </p>
-  <p>🎆 My SD models:</p>
-  <ul>
-    <li>
-      <a href="https://civitai.com/models/1638240/rayvietii-mean-average-emergent" target="_blank">
-        RayVietii-DRm (CivitAI)
-      </a> <br>
-      <a href="https://pixai.art/model/1898911080527294506" target="_blank">
-          RayVietii-DRm (PixAI)
-      </a>
-    </li>
-    <br>
-    <li>
-      <a href="https://civitai.com/models/1748739/rayvietii-papermae" target="_blank">
-        RayVietii-Papermae (CivitAI)
-      </a> <br>
-      <a href="https://pixai.art/model/1899004000309769018" target="_blank">
-          RayVietii-Papermae (PixAI)
-      </a>
-    </li>
-  </ul>
-  <p>🔊 Class V Amplifier:
-    <a href="https://github.com/RayVietii/Class-V-Amplifier" target="_blank">
-      Class-V-Amplifier
-    </a>
-  </p>
-  <p>🕊 Skaan Downwash Velocity:
-    <a href="https://github.com/RayVietii/Skaan-Downwash-Velocity" target="_blank">
-      Skaan-Downwash-Velocity
-    </a>
-  </p>
-  <p>🌏 World Building:
-    <a href="https://github.com/RayVietii/Speraneva/tree/main" target="_blank">
-      Viata: Speranēva
-    </a>
-  </p>
-  
-  <hr>
+        <div class="link-group">
+          <strong>🔊 Hardware & Research</strong>
+          <div class="link-buttons">
+            <a href="https://github.com/RayVietii/Class-V-Amplifier" target="_blank" class="link-btn">Class V Amplifier</a>
+            <a href="https://github.com/RayVietii/Skaan-Downwash-Velocity" target="_blank" class="link-btn">Skaan Downwash</a>
+          </div>
+        </div>
 
-  <blockquote>
-    <p>Find me on:<br>
-      <a href="https://youtube.com/@ray_vietii?si=54YiV0N5UfnqqSMm">YouTube</a> • 
-      <a href="https://www.instagram.com/ray_vietii?igsh=MWczbzNtcTgwejhyeQ==">Instagram</a> • 
-      <a href="https://civitai.com/user/RayVietii">CivitAI</a> • 
-      <a href="https://pixai.art/@rayvietii/artworks">PixAI</a> •
-      <a href="https://pin.it/2lb4xi7oU">Pinterest</a>
-    </p>
-  </blockquote>
+        <div class="link-group">
+          <strong>🌏 World Building</strong>
+          <div class="link-buttons">
+            <a href="https://github.com/RayVietii/Speraneva/tree/main" target="_blank" class="link-btn">Viata: Speranēva</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <img src="./RayVietii-logo-2025-white.png" alt="Ray Vietii Logo" />
-  
-  <footer style="text-align:center; margin-top:40px; font-size: 0.9em; opacity: 0.6;">
-    Ray Vietii 2025
-  </footer>
+    <div class="social-links">
+      <h3>Connect with me</h3>
+      <div class="social-grid">
+        <a href="https://youtube.com/@ray_vietii?si=54YiV0N5UfnqqSMm" class="social-link" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/ray_vietii?igsh=MWczbzNtcTgwejhyeQ==" class="social-link" target="_blank">Instagram</a>
+        <a href="https://civitai.com/user/RayVietii" class="social-link" target="_blank">CivitAI</a>
+        <a href="https://pixai.art/@rayvietii/artworks" class="social-link" target="_blank">PixAI</a>
+        <a href="https://pin.it/2lb4xi7oU" class="social-link" target="_blank">Pinterest</a>
+      </div>
+    </div>
 
+    <div class="logo-container">
+      <img src="./RayVietii-logo-2025-transparent-wide.png" alt="Ray Vietii Logo" class="logo" />
+    </div>
+
+    <footer>
+      Ray Vietii 2025
+    </footer>
+  </div>
 </body>
 </html>
